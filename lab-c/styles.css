@@ -1,0 +1,100 @@
+/* Stylizacja ciała strony */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Kontener główny */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Stylizacja mapy */
+.map-container {
+    width: 900px;
+    height: 450px;
+    border: 1px solid black;
+}
+
+/* Kontener przycisków */
+.controls {
+    display: flex;
+    gap: 15px;
+}
+
+/* Stylizacja elementu rasterMap */
+#rasterMap {
+    width: 450px;
+    height: 225px;
+    border: 1px solid black;
+}
+
+/* Kontener dla obszaru puzzli i drop zone */
+.puzzle-area {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.puzzle-container,
+.drop-zone-container {
+    width: 900px;
+    height: 450px;
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.puzzle-piece {
+    cursor: grab;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: border 0.2s ease;
+}
+
+/* Stylizacja drop zone */
+.drop-zone {
+    background-color: #b3d9ff;
+    border: 2px solid #003366;
+}
+
+.drop-zone.drag-over {
+    background-color: #99ccff;
+    border: 2px solid #005599;
+}
+
+/* Stylizacja dla elementu w trakcie przeciągania */
+.puzzle-piece.dragging {
+    border: 5px dashed #D8D8FF;
+}
+
+/* Stylizacja dla przyciemnienia planszy */
+.congratulations-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Przyciemnienie */
+    color: #fff;
+    display: none; /* Ukrycie na początku */
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.show-overlay {
+    display: flex; /* Wyświetlenie nakładki po ułożeniu puzzli */
+    opacity: 1;
+}

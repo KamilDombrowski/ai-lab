@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Puzzle</title>
+    <link rel="stylesheet" href="leaflet-1.7.1/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="leaflet-1.7.1/leaflet-src.js"></script>
+    <script src="leaflet-1.7.1/leaflet-providers.js"></script>
+    <script src="leaflet-1.7.1/leaflet-image.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div id="map" class="map-container"></div>
+        <div class="controls">
+            <button id="getLocation">Moja lokalizacja</button>
+            <button id="saveButton">Pobierz mapę</button>
+        </div>
+        <canvas id="rasterMap"></canvas>
+        
+        <!-- Puzzle Area -->
+        <div class="puzzle-area">
+            <div id="puzzle-container" class="puzzle-container"></div>
+            <div id="drop-zone-container" class="drop-zone-container"></div>
+            
+            <!-- Gratulacyjna nakładka -->
+            <div id="congratulationsOverlay" class="congratulations-overlay">
+                Gratulacje! Ułożyłeś puzzle
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
