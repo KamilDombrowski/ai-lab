@@ -40,32 +40,59 @@ class Todo {
 
     editTask(index) {
         const listItem = document.getElementById(`task-${index}`);
-        const taskContent = listItem.querySelector('.task-content');  // Dodajemy klasę do samej treści zadania
+        const taskContent = listItem.querySelector('.task-content');  // Div zawierający treść zadania
+        const taskDateElement = listItem.querySelector('.task-date');  // Element <span> zawierający datę zadania
         const originalContent = taskContent.textContent;
+        const originalDate = taskDateElement ? taskDateElement.getAttribute('data-date') : '';
     
+        // Ustawienie pola edytowalnego dla treści zadania
         taskContent.contentEditable = true;
         taskContent.focus();
     
+        // Tworzenie pola daty
+        const dateInput = document.createElement('input');
+        dateInput.type = 'datetime-local';
+        dateInput.value = originalDate ? new Date(originalDate).toISOString().slice(0, 16) : '';
+        taskDateElement.replaceWith(dateInput);
+    
+        // Funkcja zapisująca zmiany po wyjściu z edycji
         const saveChanges = () => {
             taskContent.contentEditable = false;
             const updatedContent = taskContent.textContent.trim();
+            const updatedDate = dateInput.value;
+    
             if (updatedContent.length < 3 || updatedContent.length > 255) {
                 alert('Zadanie musi mieć między 3 a 255 znaków.');
-                taskContent.textContent = originalContent;  // przywróć oryginalną treść
+                taskContent.textContent = originalContent;  // Przywróć oryginalną treść
             } else {
                 this.tasks[index].content = updatedContent;
-                this.saveTasks();
-                this.draw();
             }
+    
+            // Zapis nowej daty, jeśli jest ustawiona
+            if (updatedDate) {
+                const newDate = new Date(updatedDate);
+                if (newDate < new Date()) {
+                    alert('Data musi być w przyszłości.');
+                    taskDateElement.textContent = originalDate ? new Date(originalDate).toLocaleString() : '';
+                } else {
+                    this.tasks[index].date = updatedDate;
+                }
+            } else {
+                this.tasks[index].date = '';  // Wyczyść datę, jeśli pole jest puste
+            }
+    
+            this.saveTasks();
+            this.draw();
             document.removeEventListener('click', outsideClickListener);
         };
     
         const outsideClickListener = (event) => {
-            if (!taskContent.contains(event.target)) saveChanges();
+            if (!listItem.contains(event.target)) saveChanges();
         };
     
         document.addEventListener('click', outsideClickListener);
     }
+    
     
 
     saveTasks() {
@@ -83,7 +110,7 @@ class Todo {
     
             const taskContent = document.createElement('div');
             taskContent.classList.add('task-content');
-            taskContent.innerHTML = this.highlightTerm(task.content);  // podświetlenie wyszukiwanej frazy
+            taskContent.innerHTML = this.highlightTerm(task.content);  // Podświetlenie wyszukiwanej frazy
     
             listItem.appendChild(taskContent);
     
@@ -91,16 +118,17 @@ class Todo {
             if (task.date) {
                 const taskDate = document.createElement('span');
                 taskDate.classList.add('task-date');
-                taskDate.textContent = ` (${new Date(task.date).toLocaleString()})`;  // Formatowanie daty na lokalny format
+                taskDate.setAttribute('data-date', task.date);  // Przechowywanie daty w atrybucie
+                taskDate.textContent = ` (${new Date(task.date).toLocaleString()})`;  // Formatowanie daty
                 listItem.appendChild(taskDate);
             }
     
-            listItem.addEventListener('click', () => this.editTask(index));  // ustawienie trybu edycji po kliknięciu na taskContent
+            listItem.addEventListener('click', () => this.editTask(index));  // Ustawienie trybu edycji po kliknięciu na taskContent
     
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Usuń';
             deleteButton.addEventListener('click', (e) => {
-                e.stopPropagation();  // zapobiega aktywacji trybu edycji podczas usuwania
+                e.stopPropagation();  // Zapobiega aktywacji trybu edycji podczas usuwania
                 this.deleteTask(index);
             });
     
@@ -108,6 +136,7 @@ class Todo {
             listElement.appendChild(listItem);
         });
     }
+    
     
     
 
