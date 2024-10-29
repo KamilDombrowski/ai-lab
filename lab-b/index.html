@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista TODO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="todo-container">
+        <!-- Pole wyszukiwania -->
+        <input type="text" id="search" placeholder="Szukaj...">
+
+        <!-- Lista zadań -->
+        <ul id="todo-list">
+            <!-- Elementy listy generowane są dynamicznie przez skrypt JS -->
+        </ul>
+
+        <!-- Pole dodawania nowego zadania -->
+        <input type="text" id="new-task" placeholder="Nowe zadanie">
+        <input type="datetime-local" id="task-date" placeholder="Wybierz datę">
+        <button id="add-task">Dodaj zadanie</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
