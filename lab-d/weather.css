@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    max-width: 100%;
+}
+
+h1 {
+    color: #333;
+}
+
+input[type="text"], button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Stylizacja kontenera wyników */
+#weather-results-container {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px; /* Zmniejszona szerokość kontenera */
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Stylizacja dla sekcji z bieżącą pogodą */
+#weather-results-container h2 {
+    color: #4CAF50;
+    margin-top: 0;
+}
+
+/* Stylizacja pojedynczego elementu prognozy */
+#weather-results-container div {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+#weather-results-container div:last-child {
+    border-bottom: none; /* Bez linii dla ostatniego elementu */
+}
+
+p {
+    margin: 5px 0;
+}
+
+.weather-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 100%;
+    max-width: 550px; /* Ustawienia szerokości dla wewnętrznych kontenerów prognozy */
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-date {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Stylizacja dla temperatury i ikonki */
+.weather-info {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    justify-content: center;
+}
+
+.weather-info img {
+    width: 80px; /* Większe ikony pogody */
+    height: 80px;
+    margin-right: 10px;
+}
+
+.weather-temp {
+    font-size: 28px; /* Większy rozmiar temperatury */
+    font-weight: bold;
+    margin: 0;
+}
+
+.weather-feels-like,
+.weather-condition {
+    margin: 0;
+    text-transform: capitalize;
+}
