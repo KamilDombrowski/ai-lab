@@ -1,7 +1,7 @@
 const WeatherApp = class {
     constructor(apiKey, resultBlockSelector) {
         this.apiKey = apiKey;
-        this.resultBlock = document.querySelector(resultBlockSelector); // Blok, gdzie będą wyświetlane wyniki
+        this.resultBlock = document.querySelector(resultBlockSelector);
     }
 
     getCurrentWeather(query) {
@@ -12,7 +12,8 @@ const WeatherApp = class {
         xhr.onload = () => {
             if (xhr.status === 200) {
                 const data = JSON.parse(xhr.responseText);
-                this.drawWeather(data, "current"); // Wywołujemy metodę rysującą pogodę
+                console.log("Odpowiedź z API (bieżąca pogoda):", data);
+                this.drawWeather(data, "current");
             } else {
                 console.error("Błąd przy pobieraniu bieżącej pogody:", xhr.statusText);
             }
@@ -29,7 +30,10 @@ const WeatherApp = class {
                 if (!response.ok) throw new Error("Błąd sieciowy.");
                 return response.json();
             })
-            .then(data => this.drawWeather(data, "forecast"))
+            .then(data => {
+                console.log("Odpowiedź z API (prognoza pogody):", data);
+                this.drawWeather(data, "forecast");
+            })
             .catch(error => console.error("Błąd przy pobieraniu prognozy pogody:", error));
     }
 
@@ -40,6 +44,7 @@ const WeatherApp = class {
 
     drawWeather(data, type) {
         let content = '';
+        const resultContainer = type === "current" ? document.getElementById("currentWeather") : this.resultBlock;
     
         if (type === "current") {
             const iconCode = data.weather[0].icon;
@@ -49,14 +54,14 @@ const WeatherApp = class {
     
             content += `
                 <h2>Bieżąca pogoda dla ${data.name}</h2>
-                <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; width: 80%; max-width: 600px;">
-                    <p style="font-weight: bold; margin: 0;">${new Date().toLocaleString()}</p>
-                    <div style="display: flex; align-items: center; margin: 10px 0;">
-                        <img src="${iconUrl}" alt="Ikona pogody" style="width: 50px; height: 50px; margin-right: 10px;">
-                        <p style="font-size: 24px; font-weight: bold; margin: 0;">${data.main.temp}°C</p>
+                <div class="weather-container">
+                    <p class="weather-date">${new Date().toLocaleString()}</p>
+                    <div class="weather-info">
+                        <img src="${iconUrl}" alt="Ikona pogody">
+                        <p class="weather-temp">${data.main.temp}°C</p>
                     </div>
-                    <p style="margin: 0;">Odczuwalna: ${feelsLike}°C</p>
-                    <p style="margin: 0; text-transform: capitalize;">${condition}</p>
+                    <p class="weather-feels-like">Odczuwalna: ${feelsLike}°C</p>
+                    <p class="weather-condition">${condition}</p>
                 </div>
             `;
         } else if (type === "forecast") {
@@ -68,32 +73,26 @@ const WeatherApp = class {
                 const feelsLike = item.main.feels_like;
     
                 content += `
-                    <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; width: 80%; max-width: 600px;">
-                        <p style="font-weight: bold; margin: 0;">${item.dt_txt}</p>
-                        <div style="display: flex; align-items: center; margin: 10px 0;">
-                            <img src="${iconUrl}" alt="Ikona pogody" style="width: 50px; height: 50px; margin-right: 10px;">
-                            <p style="font-size: 24px; font-weight: bold; margin: 0;">${item.main.temp}°C</p>
+                    <div class="weather-container">
+                        <p class="weather-date">${item.dt_txt}</p>
+                        <div class="weather-info">
+                            <img src="${iconUrl}" alt="Ikona pogody">
+                            <p class="weather-temp">${item.main.temp}°C</p>
                         </div>
-                        <p style="margin: 0;">Odczuwalna: ${feelsLike}°C</p>
-                        <p style="margin: 0; text-transform: capitalize;">${condition}</p>
+                        <p class="weather-feels-like">Odczuwalna: ${feelsLike}°C</p>
+                        <p class="weather-condition">${condition}</p>
                     </div>
                 `;
             });
         }
     
-        this.resultBlock.innerHTML = content;
-        this.resultBlock.style.display = 'block';
+        resultContainer.innerHTML = content;
+        resultContainer.style.display = 'block';
     }
-    
-    
-    
-    
-    
-    
     
 };
 
-document.weatherApp = new WeatherApp("7ded80d91f2b280ec979100cc8bbba94", "#weather-results-container");
+document.weatherApp = new WeatherApp("0f26094aa5280407c18effa0b2e6ac19", "#weather-results-container");
 
 function getWeather() {
     const city = document.getElementById('cityInput').value;

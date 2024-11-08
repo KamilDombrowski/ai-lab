@@ -34,17 +34,19 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Stylizacja kontenera wyników */
 #weather-results-container {
     display: none;
     margin-top: 20px;
     padding: 20px;
-    width: 100%;
-    max-width: 600px; /* Zmniejszona szerokość kontenera */
+    width: 30vw; /* Ustaw szerokość na 80% szerokości okna */
+    max-width: none;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto; /* Wyśrodkuj kontener */
 }
+
 
 /* Stylizacja dla sekcji z bieżącą pogodą */
 #weather-results-container h2 {
@@ -109,3 +111,35 @@ p {
     margin: 0;
     text-transform: capitalize;
 }
+#currentWeather {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    width: 30vw;
+    max-width: none;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#currentWeather h2 {
+    color: #4CAF50;
+    margin-top: 0;
+}
+
+#currentWeather .weather-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 90%; /* Zmniejsz szerokość, np. do 90% */
+    max-width: 500px; /* Opcjonalnie, zmniejsz max-width, jeśli chcesz większą kontrolę */
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
