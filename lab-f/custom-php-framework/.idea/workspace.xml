@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89000960-613a-41ef-babe-1bc962c52324" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/sql/01-post.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/01-post.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/_form.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/_form.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/create.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/create.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/edit.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/edit.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/index.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/show.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/show.html.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" xdebug_debug_port="50961">
+    <xdebug_debug_ports port="50961" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="927d5225-7a59-4e1f-8f28-f73427ab990b" name="localhost" port="52884" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\php-8.3.13\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2sRaOhdY7UNyHqmV55dp4cAqnZ2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Database Script.01-post.sql.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php.debug",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ],
+    "RunConfigurationTargetLRU": [
+      "a2effdb2-610c-4d1a-8f2c-7cc9ac742e54"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="01-post.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql/01-post.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="a2effdb2-610c-4d1a-8f2c-7cc9ac742e54" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.01-post.sql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23726.107" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23726.107" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89000960-613a-41ef-babe-1bc962c52324" name="Changes" comment="" />
+      <created>1738420812827</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738420812827</updated>
+      <workItem from="1738420815333" duration="637000" />
+      <workItem from="1738498801984" duration="12003000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
