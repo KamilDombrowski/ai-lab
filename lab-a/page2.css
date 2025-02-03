@@ -1,12 +1,17 @@
 body {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Georgia', serif;
     background-color: #ffefeb;
-    color: #4a4a4a;
+    color: #e6e6e6;
     margin: 30px;
+
+    background-image: url('images/azja.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 header, footer {
-    color: #fff;
+    color: #ffffff;
     padding: 30px;
     text-align: center;
 }
@@ -32,18 +37,35 @@ header::after {
 
 header h1, header h2 {
     position: relative;
-    color: #fff;
+    color: #ffa0a0;
     z-index: 2;
 }
 
 footer {
-    background-color: #8c5a57;
+    background-color: #3d1e1a;
+    color: #fff8f8;
     padding: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    border-top: 4px solid #d62828;
+}
+
+section {
+    border: 5px double #d62828;
+    background: linear-gradient(to right, #e19d8c, #e2c0af);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02);
 }
 
 h1 {
     color: #d62828;
     font-style: italic;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
@@ -52,21 +74,19 @@ h2 {
 }
 
 h3 {
-    color: #003049;
+    color: #ffffff;
 }
-
-section {
-    border: 2px dashed #d62828;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 5px;
-    background: linear-gradient(to bottom, #fff5f0, #ffefeb);
-}
-
 
 ul {
-    list-style-type: circle;
-    padding-left: 30px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    background-size: 16px;
+    padding-left: 25px;
+    font-style: italic;
+    color: #ff8f8f;
 }
 
 a {
@@ -101,3 +121,9 @@ a:hover {
     }
 }
 
+img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
